@@ -1,0 +1,438 @@
+/* =========================================================
+   DISCOVER DEEP JAPAN 2026 - Main Style Sheet
+   Clean HTML/CSS only. No external framework required.
+   Color concept: premium black, white typography, gold accent.
+   ========================================================= */
+
+:root {
+  --bg: #050505;
+  --panel: #111111;
+  --panel-soft: #171717;
+  --text: #ffffff;
+  --muted: #bdbdbd;
+  --gold: #D4AF37;
+  --gold-soft: rgba(212, 175, 55, 0.18);
+  --line: rgba(255, 255, 255, 0.12);
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.16), transparent 32%),
+    linear-gradient(160deg, #000000 0%, #090909 45%, #141414 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   Header and Navigation
+   ========================================================= */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px clamp(18px, 4vw, 52px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.top-nav a {
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+.top-nav a:hover,
+.top-nav a.active {
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+
+/* =========================================================
+   Homepage: one-screen event-app style layout
+   ========================================================= */
+
+.home-screen {
+  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(14px, 3vw, 32px);
+}
+
+.hero {
+  text-align: center;
+  padding-top: clamp(10px, 3vh, 34px);
+  padding-bottom: clamp(12px, 2vh, 22px);
+}
+
+.kicker {
+  color: var(--gold);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: clamp(11px, 1.5vw, 13px);
+  margin: 0 0 10px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 64px);
+  line-height: 0.95;
+  letter-spacing: 0.06em;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: clamp(14px, 2vw, 20px);
+}
+
+.tile-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 1.7vw, 18px);
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tile {
+  min-height: 0;
+  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(12px, 1.8vw, 22px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: var(--shadow);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.tile:hover,
+.tile:focus {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.18), rgba(255,255,255,0.045));
+  outline: none;
+}
+
+.tile-icon {
+  font-size: clamp(22px, 3vw, 34px);
+}
+
+.tile h2 {
+  margin: 0;
+  font-size: clamp(15px, 1.9vw, 23px);
+}
+
+.tile p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(11px, 1.25vw, 14px);
+  line-height: 1.4;
+}
+
+.home-footer {
+  text-align: center;
+  color: #8f8f8f;
+  font-size: 12px;
+  padding-top: clamp(10px, 1.8vh, 18px);
+}
+
+/* =========================================================
+   General Pages
+   ========================================================= */
+
+.page-wrap {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 38px 0 96px;
+}
+
+.page-title {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.14), rgba(255,255,255,0.04));
+  box-shadow: var(--shadow);
+  margin-bottom: 22px;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 54px);
+}
+
+.page-title p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card,
+.section-card {
+  background: rgba(255,255,255,0.055);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.card h2,
+.section-card h2 {
+  margin-top: 0;
+  color: var(--gold);
+  font-size: 21px;
+}
+
+.card h3,
+.section-card h3 {
+  margin-bottom: 8px;
+}
+
+ul,
+ol {
+  color: var(--muted);
+  line-height: 1.7;
+  padding-left: 22px;
+}
+
+p {
+  line-height: 1.7;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+th,
+td {
+  padding: 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+th {
+  color: var(--gold);
+  background: rgba(212,175,55,0.12);
+}
+
+.placeholder {
+  min-height: 160px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed rgba(212,175,55,0.55);
+  border-radius: 14px;
+  color: var(--muted);
+  background: rgba(212,175,55,0.07);
+  text-align: center;
+  padding: 18px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.photo-box {
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(212,175,55,0.22), rgba(255,255,255,0.05));
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.button-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #111111;
+  font-weight: 700;
+}
+
+/* FAQ and Help use HTML details/summary, no JavaScript needed. */
+details {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(255,255,255,0.045);
+  margin-bottom: 12px;
+}
+
+summary {
+  cursor: pointer;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* =========================================================
+   Floating Help Button
+   ========================================================= */
+
+.help-widget {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 30;
+  width: min(320px, calc(100vw - 36px));
+  padding: 0;
+  border: none;
+  background: transparent;
+  margin: 0;
+}
+
+.help-widget summary {
+  list-style: none;
+  width: max-content;
+  margin-left: auto;
+  padding: 13px 18px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #111111;
+  box-shadow: var(--shadow);
+}
+
+.help-widget summary::-webkit-details-marker {
+  display: none;
+}
+
+.help-panel {
+  margin-top: 10px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(5,5,5,0.96);
+  box-shadow: var(--shadow);
+}
+
+.help-panel h2 {
+  margin: 0 0 8px;
+  color: var(--gold);
+}
+
+.help-panel p {
+  margin: 6px 0;
+  color: var(--muted);
+}
+
+/* =========================================================
+   Responsive Design
+   ========================================================= */
+
+@media (max-width: 840px) {
+  .top-nav {
+    display: none;
+  }
+
+  .tile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+  }
+
+  .hero h1 {
+    font-size: clamp(24px, 7vw, 38px);
+  }
+
+  .content-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-height: 720px) {
+  .home-screen {
+    padding: 10px;
+  }
+
+  .hero {
+    padding-top: 4px;
+    padding-bottom: 8px;
+  }
+
+  .tile {
+    padding: 10px;
+    gap: 4px;
+  }
+
+  .tile p {
+    font-size: 11px;
+  }
+
+  .home-footer {
+    display: none;
+  }
+}
